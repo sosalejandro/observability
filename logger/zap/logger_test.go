@@ -1,6 +1,7 @@
 package zap
 
 import (
+	"context"
 	"testing"
 
 	"github.com/sosalejandro/observability"
@@ -82,7 +83,7 @@ func TestZapLogger_LogInfoContext(t *testing.T) {
 	logs, zapLogger, field, lv := arrange()
 
 	// Call the LogInfo method on the ZapLogger
-	zapLogger.LogInfo(lv)
+	zapLogger.LogInfoContext(context.Background(), lv)
 
 	// Assert logger has a value
 	assert.Equal(t, logs.Len(), 1)
@@ -97,7 +98,7 @@ func TestZapLogger_LogDebugContext(t *testing.T) {
 	logs, zapLogger, field, lv := arrange()
 
 	// Call the LogDebug method on the ZapLogger
-	zapLogger.LogDebug(lv)
+	zapLogger.LogDebugContext(context.Background(), lv)
 
 	// Assert logger has a value
 	assert.Equal(t, logs.Len(), 1)
@@ -112,7 +113,7 @@ func TestZapLogger_LogErrorContext(t *testing.T) {
 	logs, zapLogger, field, lv := arrange()
 
 	// Call the LogError method on the ZapLogger
-	zapLogger.LogError(lv)
+	zapLogger.LogErrorContext(context.Background(), lv)
 
 	// Assert logger has a value
 	assert.Equal(t, logs.Len(), 1)
